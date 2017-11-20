@@ -5,7 +5,7 @@ MAINTAINER Yoann Vanitou <yvanitou@gmail.com>
 ENV MONIT_VERSION 5.24.0
 
 RUN apt-get update \
-    && apt-get install --yes wget build-essential libz-dev libpam0g-dev libssl-dev lm-sensors net-tools \
+    && apt-get install --yes wget build-essential libz-dev libpam0g-dev libssl-dev lm-sensors net-tools libltdl-dev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -21,6 +21,7 @@ RUN mkdir -v /usr/local/etc/monitrc \
 
 COPY ./monitrc /usr/local/etc/monitrc
 RUN chmod -v 700 /usr/local/etc/monitrc/monitrc
+RUN chmod -v 755 /usr/local/etc/monitrc/script.d/*.sh
 
 RUN mkdir -v /docker-entrypoint.d
 
