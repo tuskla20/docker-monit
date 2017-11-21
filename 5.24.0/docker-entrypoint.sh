@@ -59,7 +59,7 @@ for M in $MOUNTS; do
 
 cat << EOF >> /usr/local/etc/monitrc/monit.d/filesystem.cfg
 check filesystem ${NAME} with path ${M}
-  if space usage > 80% for 5 times within 15 cycles then alert
+  if space usage > 90% for 5 times within 15 cycles then alert
 EOF
 done
 
