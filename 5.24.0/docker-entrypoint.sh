@@ -77,7 +77,7 @@ done
 
 ########### Add docker
 
-if [ ! -z "$LABEL" ]; then
+if [ -z "$LABEL" ]; then
     LABEL=io.rancher.container.name
 fi
 
