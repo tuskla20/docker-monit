@@ -38,7 +38,7 @@ EOF
 
 cat << EOF >> /usr/local/etc/monitrc/monit.d/system.cfg
 check system memory
-    if memory usage > 80% for 4 cycles then alert
+    if memory usage > 90% for 4 cycles then alert
 EOF
 
 cat << EOF >> /usr/local/etc/monitrc/monit.d/system.cfg
