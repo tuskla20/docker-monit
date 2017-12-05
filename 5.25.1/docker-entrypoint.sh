@@ -70,7 +70,7 @@ done
 ########### Add all interface network
 
 if [ ! -z "$MONIT_NETWORK_EXCLUDED" ]; then
-    INTERFACES=$(ifconfig | cut -c 1-8 | sort | uniq -u eval | grep -v -E '($MONIT_NETWORK_EXCLUDED)')
+    INTERFACES=$(ifconfig | cut -c 1-8 | sort | uniq -u | grep -v -E '($MONIT_NETWORK_EXCLUDED)')
 else
     INTERFACES=$(ifconfig | cut -c 1-8 | sort | uniq -u)
 fi
