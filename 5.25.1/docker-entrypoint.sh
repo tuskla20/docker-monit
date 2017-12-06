@@ -146,7 +146,7 @@ if [ -z "$MONIT_CONTAINER_LABEL" ]; then
 fi
 
 # We defines the base command
-CMD="docker ps --format \"{{.Label \"$MONIT_CONTAINER_LABEL\"}}\""
+CMD='docker ps --format "{{.Label \"$MONIT_CONTAINER_LABEL\"}}"'
 
 # If we got any container to exclude
 if [ ! -z "$MONIT_CONTAINER_EXCLUDED" ]; then
