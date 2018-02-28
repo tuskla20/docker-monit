@@ -5,7 +5,7 @@ MAINTAINER Yoann Vanitou <yvanitou@gmail.com>
 ENV MONIT_VERSION 5.24.0
 
 RUN apt-get update \
-    && apt-get install --yes wget build-essential libz-dev libpam0g-dev libssl-dev lm-sensors net-tools libltdl-dev \
+    && apt-get install --yes wget build-essential libz-dev libpam0g-dev libssl-dev lm-sensors net-tools libltdl-dev links \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
