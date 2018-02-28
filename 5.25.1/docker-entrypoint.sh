@@ -43,15 +43,15 @@ check system cpu
 EOF
 
 cat << EOF >> /usr/local/etc/monitrc/monit.d/system.cfg
-#check system loadavg
-#    if loadavg (1min) > 3 then alert
-#    if loadavg (5min) > 2 then alert
-#    if loadavg (15min) > 1 then alert
+check system loadavg
+    if loadavg (1min) > 3 then alert
+    if loadavg (5min) > 2 then alert
+    if loadavg (15min) > 1 then alert
 EOF
 
 cat << EOF >> /usr/local/etc/monitrc/monit.d/system.cfg
 check system memory
-    if memory usage > 90% for 4 cycles then alert
+    if memory usage > 80% for 4 cycles then alert
 EOF
 
 cat << EOF >> /usr/local/etc/monitrc/monit.d/system.cfg
@@ -95,7 +95,7 @@ for M in $MOUNTS; do
 # Write the Monit rule
 cat << EOF >> /usr/local/etc/monitrc/monit.d/filesystem.cfg
 check filesystem ${NAME} with path ${M}
-  if space usage > 90% for 5 times within 15 cycles then alert
+  if space usage > 80% for 5 times within 15 cycles then alert
 EOF
 done
 
@@ -129,7 +129,7 @@ for I in $INTERFACES; do
 # Write the Monit rule
 cat << EOF >> /usr/local/etc/monitrc/monit.d/network.cfg
 check network ${NAME} with interface ${I}
-  if saturation > 90% then alert
+  if saturation > 80% then alert
 EOF
 done
 
