@@ -85,6 +85,8 @@ CMD="$CMD || true"
 # Eval and output in var
 MOUNTS=$(eval "$CMD")
 
+COUNTER=0
+
 for M in $MOUNTS; do
     NAME=$(basename $M)
 
@@ -94,9 +96,10 @@ for M in $MOUNTS; do
 
 # Write the Monit rule
 cat << EOF >> /usr/local/etc/monitrc/monit.d/filesystem.cfg
-check filesystem ${NAME} with path ${M}
+check filesystem ${NAME}-${COUNTER} with path ${M}
   if space usage > 80% for 5 times within 15 cycles then alert
 EOF
+((COUNTER++))
 done
 
 # -----------------------------------------------
