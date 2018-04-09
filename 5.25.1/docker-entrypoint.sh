@@ -56,7 +56,7 @@ EOF
 
 cat << EOF >> /usr/local/etc/monitrc/monit.d/system.cfg
 check system swap
-    if swap usage > 20% for 4 cycles then alert
+    if swap usage > 40% for 4 cycles then alert
 EOF
 
 # -----------------------------------------------
