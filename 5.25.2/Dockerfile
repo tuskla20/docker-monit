@@ -21,10 +21,6 @@ RUN cd /tmp/monit-"$MONIT_VERSION" \
 RUN mkdir -v /usr/local/etc/monitrc \
     && chmod -v 700 /usr/local/etc/monitrc
 
-COPY ./monitrc /usr/local/etc/monitrc
-RUN chmod -v 700 /usr/local/etc/monitrc/monitrc
-RUN chmod -v 755 /usr/local/etc/monitrc/script.d/*.sh
-
 RUN mkdir -v /docker-entrypoint.d
 
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
