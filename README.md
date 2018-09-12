@@ -10,34 +10,6 @@ MONIT_USERNAME=user
 MONIT_PASSWORD=changeit
 ```
 
-```
-MONIT_VOLUME_EXCLUDED=/data,/var
-```
-
-```
-MONIT_NETWORK_EXCLUDED=lo,eth1
-```
-
-```
-MONIT_CONTAINER_EXCLUDED=ngnix
-```
-
-```
-MONIT_CONTAINER_LABEL=io.docker.container.name
-```
-
-```
-MONIT_DB_DATA_PATH=/var/lib/mysql
-```
-
-```
-MONIT_DB_EXCLUDED_PATH=/var/lib/mysql/database
-```
-
-```
-MONIT_DB_INCLUDE_EXT=MYD,ibd
-```
-
 ## Execution
 
 ```
