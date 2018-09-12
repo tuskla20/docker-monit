@@ -29,6 +29,8 @@ RUN mkdir -v /docker-entrypoint.d
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod -v 755 /docker-entrypoint.sh
 
+EXPOSE 2812
+
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
 CMD ["/usr/local/bin/monit", "-I", "-c", "/usr/local/etc/monitrc/monitrc"]
