@@ -27,15 +27,20 @@ set httpd
     allow ${MONIT_USERNAME}:${MONIT_PASSWORD}
 EOF
 
-
 # --------------
 # ADD ALL SCRIPT
 # --------------
-if [ -d /docker-entrypoint.d ]; then
-    for f in /docker-entrypoint.d/*; do
-        [ -x "$f" ] && . "$f"
-    done
-    unset f
+lockfile=/.lock
+
+if [ ! -f "$lockfile" ]; then
+    if [ -d /docker-entrypoint.d ]; then
+        for f in /docker-entrypoint.d/*; do
+            [ -x "$f" ] && . "$f"
+        done
+        unset f
+    fi
+
+    touch $lockfile
 fi
 
 echo "Running $@"
