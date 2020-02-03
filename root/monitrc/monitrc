@@ -304,4 +304,3 @@ set eventqueue
 ## directories.
 #
 include /usr/local/etc/monitrc/monit.d/*.cfg
-#
