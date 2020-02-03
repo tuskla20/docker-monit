@@ -31,9 +31,6 @@ RUN set -x \
 COPY --chown=0:0 root/monitrc /usr/local/etc/monitrc
 COPY --chown=0:0 root/docker-entrypoint.sh /docker-entrypoint.sh
 
-RUN set -x \
-    chmod 600 /usr/local/etc/monitrc/monitrc
-
 EXPOSE 2812
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
