@@ -26,12 +26,13 @@ RUN set -x \
     && cd \
     && rm -rf /tmp/* \
     && apk del mybuild \
-    && mkdir -p /usr/local/etc/monitrc /docker-entrypoint.d \
-    && touch /usr/local/etc/monitrc/monitrc \
-    && chmod 600 /usr/local/etc/monitrc/monitrc
+    && mkdir -p /usr/local/etc/monitrc /docker-entrypoint.d 
 
 COPY --chown=0:0 root/monitrc /usr/local/etc/monitrc
 COPY --chown=0:0 root/docker-entrypoint.sh /docker-entrypoint.sh
+
+RUN set -x \
+    chmod 600 /usr/local/etc/monitrc/monitrc
 
 EXPOSE 2812
 
