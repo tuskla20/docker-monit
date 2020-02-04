@@ -13,6 +13,14 @@ if [ -z "$MONIT_PASSWORD" ]; then
     exit 1
 fi
 
+if [ -z "$MONIT_DELAY" ]; then
+    MONIT_DELAY=0
+fi
+
+if [ $MONIT_DELAY -gt 0 ]; then
+    sleep $MONIT_DELAY
+fi
+
 # -----------------------------------------------
 # LOGIN CONFIGURATION
 # Author Yoann Vanitou <yvanitou@gmail.com>
