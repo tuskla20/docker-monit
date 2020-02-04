@@ -14,7 +14,7 @@ RUN set -x \
         zlib-dev \
         ca-certificates \
         tzdata \
-        links \
+        findmnt \
     && cd /tmp \
     && wget "https://mmonit.com/monit/dist/monit-$MONIT_VERSION.tar.gz" \
     && tar -zxvf "monit-$MONIT_VERSION.tar.gz" \

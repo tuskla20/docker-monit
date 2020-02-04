@@ -31,5 +31,5 @@ docker run -ti --name=monit --privileged --net=host --pid=host --rm -v /:/host/:
 ## Dashboard
 
 ```
-docker exec -ti monit links http://admin:changeit@localhost:2812
+http://admin:changeit@localhost:2812
 ```
