@@ -1,4 +1,4 @@
-FROM alpine:3.11
+FROM docker:stable
 
 LABEL maintainer="Yoann VANITOU <yvanitou@gmail.com>"
 
