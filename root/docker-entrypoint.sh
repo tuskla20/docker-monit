@@ -32,6 +32,7 @@ cat << EOF > /usr/local/etc/monitrc/monit.d/1_httpd.cfg
 set httpd
     port 2812
     allow 127.0.0.1
+    allow "::1"
     allow ${MONIT_USERNAME}:${MONIT_PASSWORD}
 EOF
 
