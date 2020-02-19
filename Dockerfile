@@ -19,22 +19,22 @@ RUN set -x \
     && wget "https://mmonit.com/monit/dist/monit-$MONIT_VERSION.tar.gz" \
     && tar -zxvf "monit-$MONIT_VERSION.tar.gz" \
     && cd "monit-$MONIT_VERSION" \
-    && ./configure \
+    && ./configure --sysconfdir /etc/monit \
         --without-pam \
     && make -j$(nproc) \
     && make install \
     && cd \
     && rm -rf /tmp/* \
     && apk del mybuild \
-    && mkdir -p /etc/monitrc /docker-entrypoint.d
+    && mkdir -p /etc/monit /docker-entrypoint.d
 
-COPY --chown=0:0 root/monitrc /etc/monitrc
+COPY --chown=0:0 root/monit /etc/monit
 COPY --chown=0:0 root/docker-entrypoint.sh /docker-entrypoint.sh
 
 EXPOSE 2812
 
-HEALTHCHECK --start-period=300s --interval=60s --timeout=30s CMD monit status -c /etc/monitrc/monitrc || exit 1
+HEALTHCHECK --start-period=300s --interval=60s --timeout=30s CMD monit status || exit 1
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
-CMD ["/usr/local/bin/monit", "-I", "-c", "/etc/monitrc/monitrc"]
+CMD ["/usr/local/bin/monit", "-I"]

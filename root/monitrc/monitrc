@@ -303,5 +303,5 @@ set eventqueue
 ## It is possible to include additional configuration parts from other files or
 ## directories.
 #
-include /etc/monitrc/monit.d/*.cfg
+include /etc/monit/monit.d/*.cfg
 #
