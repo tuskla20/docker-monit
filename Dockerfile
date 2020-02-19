@@ -33,8 +33,8 @@ COPY --chown=0:0 root/docker-entrypoint.sh /docker-entrypoint.sh
 
 EXPOSE 2812
 
-HEALTHCHECK --start-period=300s --interval=60s --timeout=30s CMD monit status || exit 1
+HEALTHCHECK --start-period=300s --interval=60s --timeout=30s CMD monit status -c /etc/monitrc/monitrc || exit 1
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
-CMD ["/usr/local/bin/monit", "-I"]
+CMD ["/usr/local/bin/monit", "-I", "-c", "/etc/monitrc/monitrc"]
