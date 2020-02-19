@@ -26,13 +26,15 @@ RUN set -x \
     && cd \
     && rm -rf /tmp/* \
     && apk del mybuild \
-    && mkdir -p /usr/local/etc/monitrc /docker-entrypoint.d 
+    && mkdir -p /etc/monitrc /docker-entrypoint.d 
 
-COPY --chown=0:0 root/monitrc /usr/local/etc/monitrc
+COPY --chown=0:0 root/monitrc /etc/monitrc
 COPY --chown=0:0 root/docker-entrypoint.sh /docker-entrypoint.sh
 
 EXPOSE 2812
 
+HEALTHCHECK --start-period=60s --interval=60s --timeout=30s CMD monit status || exit 1
+
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
-CMD ["/usr/local/bin/monit", "-I", "-c", "/usr/local/etc/monitrc/monitrc"]
+CMD ["/usr/local/bin/monit", "-I"]

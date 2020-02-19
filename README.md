@@ -13,6 +13,10 @@ If you are interested, [check out](https://hub.docker.com/r/maltyxx/) my other ð
 ## Variables
 
 ```
+MONIT_DELAY=secondes
+```
+
+```
 MONIT_USERNAME=user
 ``` 
 

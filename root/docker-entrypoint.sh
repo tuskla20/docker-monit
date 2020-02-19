@@ -17,7 +17,7 @@ if [ -z "$MONIT_DELAY" ]; then
     MONIT_DELAY=0
 fi
 
-LOCK=/.docker-lock
+LOCK=/.lock
 
 if [ ! -f "$LOCK" ]; then
 
@@ -53,5 +53,4 @@ EOF
     touch $LOCK
 fi
 
-echo "Running $@"
 exec "$@"
