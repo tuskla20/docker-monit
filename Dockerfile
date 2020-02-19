@@ -26,7 +26,7 @@ RUN set -x \
     && cd \
     && rm -rf /tmp/* \
     && apk del mybuild \
-    && mkdir -p /etc/monitrc/monit.d /docker-entrypoint.d
+    && mkdir -p /etc/monitrc /docker-entrypoint.d
 
 COPY --chown=0:0 root/monitrc /etc/monitrc
 COPY --chown=0:0 root/docker-entrypoint.sh /docker-entrypoint.sh
