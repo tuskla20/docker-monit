@@ -25,16 +25,16 @@ RUN set -x \
     && make install \
     && cd \
     && rm -rf /tmp/* \
-    && apk del mybuild \
-    && mkdir -p /etc/monit /docker-entrypoint.d
+    && apk del mybuild
 
-COPY --chown=0:0 root/monit /etc/monit
-COPY --chown=0:0 root/docker-entrypoint.sh /docker-entrypoint.sh
+ADD --chown=0:0 rootfs /
 
 EXPOSE 2812
 
 HEALTHCHECK --start-period=300s --interval=30s --timeout=30s --retries=3 CMD monit status || exit 1
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
+
+VOLUME ["/etc/monit"]
 
 CMD ["/usr/local/bin/monit", "-I"]

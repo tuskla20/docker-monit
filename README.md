@@ -13,10 +13,6 @@ If you are interested, [check out](https://hub.docker.com/r/maltyxx/) my other ð
 ## Variables
 
 ```
-MONIT_DELAY=secondes
-```
-
-```
 MONIT_USERNAME=user
 ``` 
 
@@ -29,12 +25,11 @@ MONIT_PASSWORD=changeit
 You can also use the following minimal command :
 
 ```
-docker run -ti --name=monit --net=host --rm -v /:/host/:ro /var/run/docker.sock:/var/run/docker.sock -p 2812:2812 -e MONIT_USERNAME='admin' -e MONIT_PASSWORD='changeit' maltyxx/monit:latest
+docker run -ti --name=monit --net=host --rm -v /:/host/:ro /var/run/docker.sock:/var/run/docker.sock -v <VOLUME>:/etc/monit -p 2812:2812 -e MONIT_USERNAME='admin' -e MONIT_PASSWORD='changeit' maltyxx/monit:latest
 ```
 
 ## Dashboard
 
 ```
-apk add links
-links http://admin:changeit@localhost:2812
+apk add links && links http://admin:changeit@localhost:2812
 ```
