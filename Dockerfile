@@ -35,6 +35,4 @@ HEALTHCHECK --start-period=300s --interval=30s --timeout=30s --retries=3 CMD mon
 
 ENTRYPOINT ["/entrypoint.sh"]
 
-VOLUME ["/etc/monit"]
-
 CMD ["/usr/local/bin/monit", "-I"]
