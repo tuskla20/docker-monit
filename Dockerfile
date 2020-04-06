@@ -30,7 +30,7 @@ RUN set -x \
 ADD --chown=0:0 rootfs /
 
 RUN set -x \
-    chmod 600 /etc/monit/monitrc
+    && chmod 600 /etc/monit/monitrc
 
 EXPOSE 2812
 
