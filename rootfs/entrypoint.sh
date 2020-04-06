@@ -9,13 +9,6 @@ echo ${TZ} > /etc/timezone
 
 LOCK=/etc/monit/entrypoint.lock
 
-if [ "$MONIT_REGENERATE" = 'true' ]; then
-    if [ -f "$LOCK" ]; then
-        echo "Lock removing..."
-        rm -rv /etc/monit/entrypoint.lock /etc/monit/monit.d/*.cfg
-    fi
-fi
-
 if [ ! -f "$LOCK" ]; then
     if [ -d /entrypoint.d ]; then
         for f in /entrypoint.d/*; do

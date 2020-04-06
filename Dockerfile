@@ -29,6 +29,9 @@ RUN set -x \
 
 ADD --chown=0:0 rootfs /
 
+RUN set -x \
+    chmod 600 /etc/monit/monitrc
+
 EXPOSE 2812
 
 HEALTHCHECK --start-period=300s --interval=30s --timeout=30s --retries=3 CMD monit status || exit 1
