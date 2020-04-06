@@ -12,7 +12,7 @@ LOCK=/etc/monit/entrypoint.lock
 if [ "$MONIT_REGENERATE" = 'true' ]; then
     if [ -f "$LOCK" ]; then
         echo "Lock removing..."
-        rm $LOCK
+        rm -rv /etc/monit/entrypoint.lock /etc/monit/monit.d/*.cfg
     fi
 fi
 
