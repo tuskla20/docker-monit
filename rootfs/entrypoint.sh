@@ -7,7 +7,7 @@ echo "Setting timezone to ${TZ}..."
 ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime
 echo ${TZ} > /etc/timezone
 
-LOCK=/etc/monit/entrypoint.lock
+LOCK=/run/lock/entrypoint.lock
 
 if [ ! -f "$LOCK" ]; then
     if [ -d /entrypoint.d ]; then

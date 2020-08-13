@@ -2,7 +2,7 @@ FROM docker:stable
 
 LABEL maintainer="Yoann VANITOU <yvanitou@gmail.com>"
 
-ARG MONIT_VERSION=5.26.0
+ARG MONIT_VERSION=5.27.0
 
 RUN set -x \
     && apk add --no-cache --virtual mybuild \
@@ -30,7 +30,8 @@ RUN set -x \
 ADD --chown=0:0 rootfs /
 
 RUN set -x \
-    && chmod 600 /etc/monit/monitrc
+    && chmod 600 /etc/monit/monitrc \
+    && mkdir -p /run/lock
 
 EXPOSE 2812
 
