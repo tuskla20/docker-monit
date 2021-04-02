@@ -25,6 +25,14 @@ MONIT_USERNAME=user
 MONIT_PASSWORD=changeit
 ```
 
+### Mount points
+
+Configs should be stored in the following directory : 
+
+```
+/etc/monit/monit.d/*.cfg
+```
+
 ### Command line
 
 You can also use the following minimal command :
