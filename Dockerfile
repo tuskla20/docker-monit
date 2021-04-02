@@ -5,6 +5,8 @@ LABEL maintainer="Yoann VANITOU <yvanitou@gmail.com>"
 ARG MONIT_VERSION=5.27.2
 
 RUN set -x \
+    && apk update \
+    && apk upgrade \
     && apk add --no-cache --virtual mybuild \
         build-base \
     && apk add --no-cache \
