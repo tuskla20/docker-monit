@@ -27,7 +27,9 @@ RUN set -x \
     && make install \
     && cd \
     && rm -rf /tmp/* \
-    && apk del mybuild
+    && apk del mybuild \
+    && apk add --update docker openrc \
+    && rc-update add docker boot
 
 ADD --chown=0:0 rootfs /
 
